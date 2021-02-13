@@ -100,4 +100,4 @@ A really helpful resource for doing this project and creating smooth trajectorie
     cd uWebSockets
     git checkout e94b6e1
     ```
-
+Thanks to https://github.com/darienmt/CarND-Path-Planning-Project-P1
