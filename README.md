@@ -101,3 +101,24 @@ A really helpful resource for doing this project and creating smooth trajectorie
     git checkout e94b6e1
     ```
 
+---
+
+# Reflection
+### 1- Sensor Fusion & Tracking of Other Vehicles
+
+This part is responsible for analysing the sensor fusion data and tracking of other cars. Here we want to determine
+the position and speed of other cars. After this step we should know if there is a car in front of us, on our right or on our left. 
+
+### 2- Behavior Planning
+
+This part is responsible for deciding how the vehicle should behave in any situation. 
+Based on the sensor fusion data analysis we have a prediction about our situation in traffic. Here we are giving a decision
+about increases or decrease the speed and make a lane change when it is safe.
+
+### 3- Trajectory
+
+This part is responsible for the calculation of the trajectory based on the result of behavior planning, car coordinates and past path points. 
+Main idea simply is having 3 points at 30-60-90 meters from car's perspective. Put these 3 points to the availbe positions according to result of behavior planning. 
+And fill the gap with points by help of the spline. One important thing is that we don't have to calculate all path for every iteration. We can use the some part of previous path.
+We have 50 point for our trajectory and we are not using all of them for every iteration. Let's say we went through 20 of them and it means that we can still use these 30 remaining 
+points. So we first taking the remaining points from previous path and than calculate the new ones.

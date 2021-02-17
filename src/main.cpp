@@ -118,7 +118,8 @@ int main() {
             car_s = end_path_s;
           }
 
-          // Analysis the other cars
+          // ----- Sensor Fusion & Tracking of Other Vehicles -----
+          
           for ( int i = 0; i < sensor_fusion.size(); i++ ) {
             float d = sensor_fusion[i][6];
             int car_lane = -1;
@@ -153,6 +154,9 @@ int main() {
             }
           }
           
+          
+          // ----- Behavior Planning ----- 
+          
           if (car_ahead) {
             if (!car_left && lane!=0){
               lane--;//turn left
@@ -176,10 +180,10 @@ int main() {
               }
           }
 
-          /**
-           * TODO: define a path made up of (x,y) points that the car will visit
-           *   sequentially every .02 seconds
-           */
+          
+          // ----- Trajectory -----
+          
+          // Define a path made up of (x,y) points that the car will visit
           vector<double> ptsx;
           vector<double> ptsy;
 
