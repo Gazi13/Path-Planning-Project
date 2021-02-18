@@ -122,3 +122,24 @@ Main idea simply is having 3 points at 30-60-90 meters from car's perspective. P
 And fill the gap with points by help of the spline. One important thing is that we don't have to calculate all path for every iteration. We can use the some part of previous path.
 We have 50 point for our trajectory and we are not using all of them for every iteration. Let's say we went through 20 of them and it means that we can still use these 30 remaining 
 points. So we first taking the remaining points from previous path and than calculate the new ones.
+
+
+### Finite State Machine Design
+
+This figure is showing the basic structure of the finite state machine design. There are 2 main state actually; keep lane and change lane.
+We are starting from center lane and according to decision of our model we can change to left or right lane to pass car.
+We always try to be in center lane if center lane is avaible. 
+
+<p align="center">
+  <img src="fsm.png" />
+</p>
+
+The control flow is simply; always first check if there is a car in front of us than try to find a way to pass this car. And always try to turn to center.
+* Check center lane
+  * Check left lane
+      * Check right lane
+        * Keep on center lane
+      * Change to right lane
+  * Change to left lane
+* Keep on center lane
+
